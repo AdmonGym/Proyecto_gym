@@ -53,7 +53,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         panel1 = new org.edisoncor.gui.panel.Panel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
         textEDAD = new org.edisoncor.gui.textField.TextField();
         jComboBoxSEXO = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
@@ -68,7 +67,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        textID = new org.edisoncor.gui.textField.TextField();
         jLabel24 = new javax.swing.JLabel();
         textCALLE = new org.edisoncor.gui.textField.TextField();
         jLabel25 = new javax.swing.JLabel();
@@ -81,8 +79,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         textCOL = new org.edisoncor.gui.textField.TextField();
         jLabel28 = new javax.swing.JLabel();
         textCARGO = new org.edisoncor.gui.textField.TextField();
-        jLabel29 = new javax.swing.JLabel();
-        textIDEXP = new org.edisoncor.gui.textField.TextField();
         jLabel30 = new javax.swing.JLabel();
         textNOMBRES = new org.edisoncor.gui.textField.TextField();
         jLabel31 = new javax.swing.JLabel();
@@ -208,10 +204,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         jButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(200, 216, 252));
-        jLabel11.setText("ID:");
-
         textEDAD.setText(" ");
 
         jComboBoxSEXO.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
@@ -262,8 +254,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         jLabel21.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(48, 79, 255));
         jLabel21.setText("Contacto:");
-
-        textID.setText(" ");
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(200, 216, 252));
@@ -325,16 +315,6 @@ public class Registrar_personal extends javax.swing.JDialog {
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(200, 216, 252));
-        jLabel29.setText(" Clave expediente:");
-
-        textIDEXP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDEXPActionPerformed(evt);
-            }
-        });
-
         jLabel30.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(200, 216, 252));
         jLabel30.setText("Nombre(s):");
@@ -380,10 +360,6 @@ public class Registrar_personal extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBoxINST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(textCONTAC, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -391,17 +367,10 @@ public class Registrar_personal extends javax.swing.JDialog {
                                 .addComponent(jLabel20)
                                 .addGap(8, 8, 8)
                                 .addComponent(textFieldTELEMERG, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textFieldNSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textIDEXP, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldNSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(panel1Layout.createSequentialGroup()
@@ -466,13 +435,7 @@ public class Registrar_personal extends javax.swing.JDialog {
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textIDEXP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29))
-                .addGap(22, 22, 22)
+                .addGap(106, 106, 106)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNOMBRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30)
@@ -599,10 +562,6 @@ public class Registrar_personal extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_textCARGOActionPerformed
 
-    private void textIDEXPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDEXPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textIDEXPActionPerformed
-
     private void textNOMBRESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNOMBRESActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textNOMBRESActionPerformed
@@ -662,7 +621,6 @@ public class Registrar_personal extends javax.swing.JDialog {
     private javax.swing.JComboBox jComboBoxSEXO;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -678,7 +636,6 @@ public class Registrar_personal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -708,8 +665,6 @@ public class Registrar_personal extends javax.swing.JDialog {
     private org.edisoncor.gui.textField.TextField textField9;
     private org.edisoncor.gui.textField.TextField textFieldNSS;
     private org.edisoncor.gui.textField.TextField textFieldTELEMERG;
-    private org.edisoncor.gui.textField.TextField textID;
-    private org.edisoncor.gui.textField.TextField textIDEXP;
     private org.edisoncor.gui.textField.TextField textMATERNO;
     private org.edisoncor.gui.textField.TextField textNOMBRES;
     private org.edisoncor.gui.textField.TextField textNUM;

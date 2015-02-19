@@ -57,7 +57,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         panel1 = new org.edisoncor.gui.panel.Panel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        textID = new org.edisoncor.gui.textField.TextField();
         textNOMBRES = new org.edisoncor.gui.textField.TextField();
         textMATERNO = new org.edisoncor.gui.textField.TextField();
         textPESO = new org.edisoncor.gui.textField.TextField();
@@ -70,7 +69,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         textCONTACTO = new org.edisoncor.gui.textField.TextField();
         textField10 = new org.edisoncor.gui.textField.TextField();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -92,8 +90,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel16 = new javax.swing.JLabel();
         textCP = new org.edisoncor.gui.textField.TextField();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        textIDEXP = new org.edisoncor.gui.textField.TextField();
         jLabel19 = new javax.swing.JLabel();
         textEDAD1 = new org.edisoncor.gui.textField.TextField();
         jLabel20 = new javax.swing.JLabel();
@@ -140,14 +136,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        textID.setEditable(false);
-        textID.setText(" ");
-        textID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDActionPerformed(evt);
             }
         });
 
@@ -215,10 +203,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(200, 216, 252));
-        jLabel1.setText("ID:");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(200, 216, 252));
@@ -313,12 +297,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(200, 216, 252));
         jLabel17.setText(" C.P.:");
-
-        jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(200, 216, 252));
-        jLabel18.setText("Clave expediente:");
-
-        textIDEXP.setText(" ");
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(200, 216, 252));
@@ -426,16 +404,9 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textEST, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textNOMBRES, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                                        .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(186, 186, 186)))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textNOMBRES, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -444,7 +415,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                                 .addComponent(jLabel5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(textTEL, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(textIDEXP, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel16)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -461,33 +431,19 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(textPATERNO, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel19))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addGroup(panel1Layout.createSequentialGroup()
-                                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel12)
-                                                    .addComponent(jLabel19))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(textMATERNO, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(textPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addComponent(textMATERNO, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(109, 109, 109))))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(textIDEXP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(15, 15, 15)
+                .addGap(67, 67, 67)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textNOMBRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -633,7 +589,11 @@ public class Registrar_cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_textNSSActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    // TODO add your handling code here:
+cerrar(); 
+       Catalogo_cursos dialog = new Catalogo_cursos(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        dialog.setTitle("CATALOGO");
+        dialog.setLocationRelativeTo(null);     
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void textDELGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDELGActionPerformed
@@ -663,10 +623,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private void textFRECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFRECActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFRECActionPerformed
-
-    private void textIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textIDActionPerformed
 
     private void textPESOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPESOActionPerformed
         // TODO add your handling code here:
@@ -721,7 +677,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private javax.swing.JComboBox jComboBoxINST;
     private javax.swing.JComboBox jComboBoxSEXO;
     private javax.swing.JComboBox jComboBoxTALLA;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -730,7 +685,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -753,8 +707,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private org.edisoncor.gui.textField.TextField textEST;
     private org.edisoncor.gui.textField.TextField textFREC;
     private org.edisoncor.gui.textField.TextField textField10;
-    private org.edisoncor.gui.textField.TextField textID;
-    private org.edisoncor.gui.textField.TextField textIDEXP;
     private org.edisoncor.gui.textField.TextField textMATERNO;
     private org.edisoncor.gui.textField.TextField textNOMBRES;
     private org.edisoncor.gui.textField.TextField textNSS;

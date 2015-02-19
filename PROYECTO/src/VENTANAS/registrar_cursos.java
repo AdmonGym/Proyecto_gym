@@ -31,7 +31,6 @@ public class registrar_cursos extends javax.swing.JDialog {
 
         textField3 = new org.edisoncor.gui.textField.TextField();
         panel1 = new org.edisoncor.gui.panel.Panel();
-        textID = new org.edisoncor.gui.textField.TextField();
         jComboBoxDIA = new javax.swing.JComboBox();
         jComboBoxHORA = new javax.swing.JComboBox();
         jSpinnerINIDIA = new javax.swing.JSpinner();
@@ -42,7 +41,6 @@ public class registrar_cursos extends javax.swing.JDialog {
         jSpinnerFINAÑO = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -56,6 +54,8 @@ public class registrar_cursos extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         textPRE = new org.edisoncor.gui.textField.TextField();
+        jLabel11 = new javax.swing.JLabel();
+        textNOMCUR1 = new org.edisoncor.gui.textField.TextField();
 
         textField3.setText(" ");
 
@@ -63,8 +63,6 @@ public class registrar_cursos extends javax.swing.JDialog {
 
         panel1.setColorPrimario(new java.awt.Color(50, 119, 255));
         panel1.setColorSecundario(new java.awt.Color(200, 216, 252));
-
-        textID.setText(" ");
 
         jComboBoxDIA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos los días", "L-M-V", "M-J" }));
 
@@ -96,10 +94,6 @@ public class registrar_cursos extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(200, 216, 252));
-        jLabel1.setText(" ID:");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(200, 216, 252));
@@ -165,10 +159,29 @@ public class registrar_cursos extends javax.swing.JDialog {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(200, 216, 252));
+        jLabel11.setText("Nombre del instructor:");
+
+        textNOMCUR1.setText(" ");
+        textNOMCUR1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNOMCUR1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
+                .addGap(102, 102, 102))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,11 +213,11 @@ public class registrar_cursos extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jSpinnerFINAÑO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel2)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panel1Layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textNOMCUR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addGap(18, 18, 18)
@@ -221,36 +234,29 @@ public class registrar_cursos extends javax.swing.JDialog {
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(textPRE, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
-                .addGap(102, 102, 102))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(59, 59, 59)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(textNOMCUR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(textCUPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(textDUR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(textNOMCUR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
-                        .addComponent(textPRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textPRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(textCUPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(textDUR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -294,8 +300,8 @@ public class registrar_cursos extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         cerrar(); 
-        Cursos dialog = new Cursos(new javax.swing.JFrame(), true);     
-        dialog.setTitle("CURSOS");
+        Menu_Cursos dialog = new Menu_Cursos(new javax.swing.JFrame(), true);     
+        dialog.setTitle("MENU");
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -315,6 +321,10 @@ public class registrar_cursos extends javax.swing.JDialog {
     private void textPREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPREActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textPREActionPerformed
+
+    private void textNOMCUR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNOMCUR1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNOMCUR1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,8 +373,8 @@ public class registrar_cursos extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBoxDIA;
     private javax.swing.JComboBox jComboBoxHORA;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -383,8 +393,8 @@ public class registrar_cursos extends javax.swing.JDialog {
     private org.edisoncor.gui.textField.TextField textCUPO;
     private org.edisoncor.gui.textField.TextField textDUR;
     private org.edisoncor.gui.textField.TextField textField3;
-    private org.edisoncor.gui.textField.TextField textID;
     private org.edisoncor.gui.textField.TextField textNOMCUR;
+    private org.edisoncor.gui.textField.TextField textNOMCUR1;
     private org.edisoncor.gui.textField.TextField textPRE;
     // End of variables declaration//GEN-END:variables
 
