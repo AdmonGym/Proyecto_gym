@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package VENTANAS;
+
 import javax.swing.table.DefaultTableModel;
 import com.mysql.jdbc.Statement;
 import java.awt.Image;
@@ -30,6 +31,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -99,6 +101,10 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel22 = new javax.swing.JLabel();
         textFREC = new org.edisoncor.gui.textField.TextField();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
+        textIDCLI = new org.edisoncor.gui.textField.TextField();
+        textCVECLI = new org.edisoncor.gui.textField.TextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -338,6 +344,10 @@ public class Registrar_cliente extends javax.swing.JDialog {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jLabel1.setText("ID Cliente");
+
+        jLabel18.setText("Clave Expediente");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -408,9 +418,13 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textEST, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textNOMBRES, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textNOMBRES, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textIDCLI, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -433,10 +447,18 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel14)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(textPATERNO, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(panel1Layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel14)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                    .addGroup(panel1Layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel18)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(textPATERNO, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(textCVECLI, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel12)
@@ -460,7 +482,18 @@ public class Registrar_cliente extends javax.swing.JDialog {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(textIDCLI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(textCVECLI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textNOMBRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
@@ -559,34 +592,76 @@ public class Registrar_cliente extends javax.swing.JDialog {
         dialog.setTitle("CLIENTES");
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
-        
-        }
-        private void cerrar(){
-            this.setVisible(false);
+
+    }
+
+    private void cerrar() {
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    ConexionMysql mysql=new ConexionMysql();
-    Connection cn= mysql.Conectar();
-    String nombres= textNOMBRES.getText();
-    String paterno= textPATERNO.getText();
-     String materno= textMATERNO.getText();
-     String calle= textCALLE.getText();
-     String numero= textNUM.getText();
-     String colonia= textCOL.getText();
-     String delegacion= textDELG.getText();
-     String cp=textCP.getText();
-     String telefono= textTEL.getText();
-     String edad= textEDAD1.getText();
-     String sexo= (String) jComboBoxSEXO.getSelectedItem();
-     String talla= (String) jComboBoxTALLA.getSelectedItem();
-     String estatura= textEST.getText();
-     String frec_car= textFREC.getText();
-     String noss=textNSS.getText();
-     String institucion= (String) jComboBoxINST.getSelectedItem();
-     String telemerg= textTELEMRG.getText();
-     String nomfam= textCONTACTO.getText();
-       
+        ConexionMysql mysql = new ConexionMysql();
+        Connection cn = mysql.Conectar();
+        String idcliente = textIDCLI.getText();
+        String nombres = textNOMBRES.getText();
+        String paterno = textPATERNO.getText();
+        String materno = textMATERNO.getText();
+        String calle = textCALLE.getText();
+        String numero = textNUM.getText();
+        String colonia = textCOL.getText();
+        String delegacion = textDELG.getText();
+        String cp = textCP.getText();
+        String telefono = textTEL.getText();
+        String clave = textCVECLI.getText();
+        String edad = textEDAD1.getText();
+        String sexo = (String) jComboBoxSEXO.getSelectedItem();
+        String talla = (String) jComboBoxTALLA.getSelectedItem();
+        String estatura = textEST.getText();
+        String frec_car = textFREC.getText();
+        String peso = textPESO.getText();
+        String noss = textNSS.getText();
+        String institucion = (String) jComboBoxINST.getSelectedItem();
+        String telemerg = textTELEMRG.getText();
+        String nomfam = textCONTACTO.getText();
+        try {
+            {
+                PreparedStatement pstm = (PreparedStatement) cn.prepareStatement("insert into cliente(IDCliente,Nombres, ApellidoPaterno, ApellidoMaterno, Calle, Numero, Colonia, Delegacion, CP, Telefono) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                pstm.setString(1, idcliente);
+                pstm.setString(2, nombres);
+                pstm.setString(3, paterno);
+                pstm.setString(4, materno);
+                pstm.setString(5, calle);
+                pstm.setString(6, numero);
+                pstm.setString(7, colonia);
+                pstm.setString(8, delegacion);
+                pstm.setString(9, cp);
+                pstm.setString(10, telefono);
+                pstm.execute();
+                pstm.close();
+            }
+            {
+                PreparedStatement pstm = (PreparedStatement) cn.prepareStatement("insert into expediente_cliente(Clave_expediente, Edad, Sexo, Talla, Estatura, Fre_Car, Peso, NumSS, Institucion, TelEmerg, NomFamiliar) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+                pstm.setString(1, clave);
+                pstm.setString(2, edad);
+                pstm.setString(3, sexo);
+                pstm.setString(4, talla);
+                pstm.setString(5, estatura);
+                pstm.setString(6, frec_car);
+                pstm.setString(7, peso);
+                pstm.setString(8, noss);
+                pstm.setString(9, institucion);
+                pstm.setString(10, telemerg);
+                pstm.setString(11, nomfam);
+                pstm.execute();
+                pstm.close();
+                JOptionPane.showMessageDialog(null, "Los Datos han sido guardados");
+                pstm.executeUpdate();
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -607,11 +682,11 @@ public class Registrar_cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_textNSSActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-cerrar(); 
-       Catalogo_cursos dialog = new Catalogo_cursos(new javax.swing.JFrame(), true);
+        cerrar();
+        Catalogo_cursos dialog = new Catalogo_cursos(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
         dialog.setTitle("CATALOGO");
-        dialog.setLocationRelativeTo(null);     
+        dialog.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void textDELGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDELGActionPerformed
@@ -695,6 +770,7 @@ cerrar();
     private javax.swing.JComboBox jComboBoxINST;
     private javax.swing.JComboBox jComboBoxSEXO;
     private javax.swing.JComboBox jComboBoxTALLA;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -703,6 +779,7 @@ cerrar();
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -721,11 +798,13 @@ cerrar();
     private org.edisoncor.gui.textField.TextField textCOL;
     private org.edisoncor.gui.textField.TextField textCONTACTO;
     private org.edisoncor.gui.textField.TextField textCP;
+    private org.edisoncor.gui.textField.TextField textCVECLI;
     private org.edisoncor.gui.textField.TextField textDELG;
     private org.edisoncor.gui.textField.TextField textEDAD1;
     private org.edisoncor.gui.textField.TextField textEST;
     private org.edisoncor.gui.textField.TextField textFREC;
     private org.edisoncor.gui.textField.TextField textField10;
+    private org.edisoncor.gui.textField.TextField textIDCLI;
     private org.edisoncor.gui.textField.TextField textMATERNO;
     private org.edisoncor.gui.textField.TextField textNOMBRES;
     private org.edisoncor.gui.textField.TextField textNSS;
