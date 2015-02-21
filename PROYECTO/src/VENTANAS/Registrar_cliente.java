@@ -5,32 +5,13 @@
  */
 package VENTANAS;
 
-import javax.swing.table.DefaultTableModel;
-import com.mysql.jdbc.Statement;
-import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
 import BASE_DE_DATOS.ConexionMysql;
 import java.sql.Connection;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 import java.sql.PreparedStatement;
 
 /**
@@ -38,6 +19,9 @@ import java.sql.PreparedStatement;
  * @author Paula
  */
 public class Registrar_cliente extends javax.swing.JDialog {
+
+    ConexionMysql mysql = new ConexionMysql();
+    Connection cn = mysql.Conectar();
 
     /**
      * Creates new form Registrar_cliente
@@ -101,7 +85,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel22 = new javax.swing.JLabel();
         textFREC = new org.edisoncor.gui.textField.TextField();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        textIDCLI = new org.edisoncor.gui.textField.TextField();
+        textID = new org.edisoncor.gui.textField.TextField();
         textCVECLI = new org.edisoncor.gui.textField.TextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -424,7 +408,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textNOMBRES, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(textIDCLI, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -486,7 +470,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(textIDCLI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -600,66 +584,54 @@ public class Registrar_cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ConexionMysql mysql = new ConexionMysql();
-        Connection cn = mysql.Conectar();
-        String idcliente = textIDCLI.getText();
+
+        String idcliente = textID.getText();
         String nombres = textNOMBRES.getText();
         String paterno = textPATERNO.getText();
         String materno = textMATERNO.getText();
+        String edad = textEDAD1.getText();
+        String sexo = (String) jComboBoxSEXO.getSelectedItem();
+        String telefono = textTEL.getText();
         String calle = textCALLE.getText();
         String numero = textNUM.getText();
         String colonia = textCOL.getText();
-        String delegacion = textDELG.getText();
-        String cp = textCP.getText();
-        String telefono = textTEL.getText();
-        String clave = textCVECLI.getText();
-        String edad = textEDAD1.getText();
-        String sexo = (String) jComboBoxSEXO.getSelectedItem();
-        String talla = (String) jComboBoxTALLA.getSelectedItem();
-        String estatura = textEST.getText();
-        String frec_car = textFREC.getText();
-        String peso = textPESO.getText();
-        String noss = textNSS.getText();
-        String institucion = (String) jComboBoxINST.getSelectedItem();
-        String telemerg = textTELEMRG.getText();
-        String nomfam = textCONTACTO.getText();
         try {
             {
-                PreparedStatement pstm = (PreparedStatement) cn.prepareStatement("insert into cliente(IDCliente,Nombres, ApellidoPaterno, ApellidoMaterno, Calle, Numero, Colonia, Delegacion, CP, Telefono) VALUES (?,?,?,?,?,?,?,?,?,?)");
-                pstm.setString(1, idcliente);
-                pstm.setString(2, nombres);
-                pstm.setString(3, paterno);
-                pstm.setString(4, materno);
-                pstm.setString(5, calle);
-                pstm.setString(6, numero);
-                pstm.setString(7, colonia);
-                pstm.setString(8, delegacion);
-                pstm.setString(9, cp);
-                pstm.setString(10, telefono);
-                pstm.execute();
-                pstm.close();
-            }
-            {
-                PreparedStatement pstm = (PreparedStatement) cn.prepareStatement("insert into expediente_cliente(Clave_expediente, Edad, Sexo, Talla, Estatura, Fre_Car, Peso, NumSS, Institucion, TelEmerg, NomFamiliar) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-                pstm.setString(1, clave);
-                pstm.setString(2, edad);
-                pstm.setString(3, sexo);
-                pstm.setString(4, talla);
-                pstm.setString(5, estatura);
-                pstm.setString(6, frec_car);
-                pstm.setString(7, peso);
-                pstm.setString(8, noss);
-                pstm.setString(9, institucion);
-                pstm.setString(10, telemerg);
-                pstm.setString(11, nomfam);
-                pstm.execute();
-                pstm.close();
-                JOptionPane.showMessageDialog(null, "Los Datos han sido guardados");
-                pstm.executeUpdate();
+                PreparedStatement pst = cn.prepareStatement("insert into cliente(IDCliente, Nombres,ApellidoPaterno, ApellidoMaterno, Calle,Numero, Colonia, Delegacion, CP, Telefono) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                pst.setString(1, textID.getText());
+                pst.setString(2, textNOMBRES.getText());
+                pst.setString(3, textPATERNO.getText());
+                pst.setString(4, textMATERNO.getText());
+                pst.setString(5, textCALLE.getText());
+                pst.setString(6, textNUM.getText());
+                pst.setString(7, textCOL.getText());
+                pst.setString(8, textDELG.getText());
+                pst.setString(9, textCP.getText());
+                pst.setString(10, textTEL.getText());
 
             }
+            {
+                PreparedStatement pst = (PreparedStatement) cn.prepareStatement("insert into expediente_cliente(Clave_expediente, Edad, Sexo, Talla, Estatura, Frec_Car, Peso, NumSS, Institucion, TelEmerg, NomFamiliar) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+                pst.setString(1, textCVECLI.getText());
+                pst.setString(2, textEDAD1.getText());
+                pst.setString(3, (String) jComboBoxSEXO.getSelectedItem());
+                pst.setString(4, (String) jComboBoxTALLA.getSelectedItem());
+                pst.setString(5, textEST.getText());
+                pst.setString(6, textFREC.getText());
+                pst.setString(7, textPESO.getText());
+                pst.setString(8, textNSS.getText());
+                pst.setString(9, (String) jComboBoxINST.getSelectedItem());
+                pst.setString(10, textTELEMRG.getText());
+                pst.setString(11, textCONTACTO.getText());
+                pst.execute();
+                pst.close();
+                JOptionPane.showMessageDialog(null, "Los Datos han sido guardados");
+                pst.executeUpdate();
+
+            }
+
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.print(e.getMessage());
 
         }
 
@@ -804,7 +776,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private org.edisoncor.gui.textField.TextField textEST;
     private org.edisoncor.gui.textField.TextField textFREC;
     private org.edisoncor.gui.textField.TextField textField10;
-    private org.edisoncor.gui.textField.TextField textIDCLI;
+    private org.edisoncor.gui.textField.TextField textID;
     private org.edisoncor.gui.textField.TextField textMATERNO;
     private org.edisoncor.gui.textField.TextField textNOMBRES;
     private org.edisoncor.gui.textField.TextField textNSS;
