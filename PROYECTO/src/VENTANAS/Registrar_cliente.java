@@ -93,10 +93,8 @@ public class Registrar_cliente extends javax.swing.JDialog {
         textNOMBRES = new org.edisoncor.gui.textField.TextField();
         textMATERNO = new org.edisoncor.gui.textField.TextField();
         textPESO = new org.edisoncor.gui.textField.TextField();
-        jComboBoxSEXO = new javax.swing.JComboBox();
         textTEL = new org.edisoncor.gui.textField.TextField();
         textCALLE = new org.edisoncor.gui.textField.TextField();
-        jComboBoxINST = new javax.swing.JComboBox();
         textNSS = new org.edisoncor.gui.textField.TextField();
         textTELEMRG = new org.edisoncor.gui.textField.TextField();
         textCONTACTO = new org.edisoncor.gui.textField.TextField();
@@ -128,7 +126,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         textEST = new org.edisoncor.gui.textField.TextField();
         jLabel21 = new javax.swing.JLabel();
-        jComboBoxTALLA = new javax.swing.JComboBox();
         jLabel22 = new javax.swing.JLabel();
         textFREC = new org.edisoncor.gui.textField.TextField();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
@@ -136,6 +133,9 @@ public class Registrar_cliente extends javax.swing.JDialog {
         textCVECLI = new org.edisoncor.gui.textField.TextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        textSEXO = new org.edisoncor.gui.textField.TextField();
+        textINST = new org.edisoncor.gui.textField.TextField();
+        textTALLA = new org.edisoncor.gui.textField.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -192,13 +192,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
             }
         });
 
-        jComboBoxSEXO.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
-        jComboBoxSEXO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSEXOActionPerformed(evt);
-            }
-        });
-
         textTEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textTELActionPerformed(evt);
@@ -210,8 +203,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
                 textCALLEActionPerformed(evt);
             }
         });
-
-        jComboBoxINST.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMSS", "ISSSTE", "Seguro Popular", "Ninguno", " " }));
 
         textNSS.setText(" ");
         textNSS.addActionListener(new java.awt.event.ActionListener() {
@@ -352,8 +343,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         jLabel21.setForeground(new java.awt.Color(200, 216, 252));
         jLabel21.setText("Talla:");
 
-        jComboBoxTALLA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ch", "M", "G", "XG" }));
-
         jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(200, 216, 252));
         jLabel22.setText("Frecuencia Cardiaca:");
@@ -379,6 +368,12 @@ public class Registrar_cliente extends javax.swing.JDialog {
 
         jLabel18.setText("Clave Expediente");
 
+        textSEXO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSEXOActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -397,7 +392,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                     .addGap(60, 60, 60)
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBoxSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(textSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panel1Layout.createSequentialGroup()
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -413,7 +408,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBoxINST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textINST, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -474,7 +469,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
                                                 .addGap(110, 110, 110)
                                                 .addComponent(jLabel21)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jComboBoxTALLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(textTALLA, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,9 +535,9 @@ public class Registrar_cliente extends javax.swing.JDialog {
                     .addComponent(textPESO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBoxSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(jComboBoxTALLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textTALLA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -574,8 +569,8 @@ public class Registrar_cliente extends javax.swing.JDialog {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxINST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addComponent(textINST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -631,51 +626,64 @@ public class Registrar_cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        ConexionMysql mysql=new ConexionMysql();
+        Connection cn=mysql.Conectar();
         String idcliente = textID.getText();
         String nombres = textNOMBRES.getText();
         String paterno = textPATERNO.getText();
         String materno = textMATERNO.getText();
-        String edad = textEDAD1.getText();
-        String sexo = (String) jComboBoxSEXO.getSelectedItem();
-        String telefono = textTEL.getText();
         String calle = textCALLE.getText();
         String numero = textNUM.getText();
         String colonia = textCOL.getText();
+        String delegacion = textDELG.getText();
+        String cp = textCP.getText();
+        String telefono = textTEL.getText();
+        String clave = textCVECLI.getText();
+        String edad = textEDAD1.getText();
+        String sexo = textSEXO.getText();
+        String talla = textTALLA.getText();
+        String estatura = textEST.getText();
+        String frec_car = textFREC.getText();
+        String peso = textPESO.getText();
+        String nss = textNSS.getText();
+        String institucion = textINST.getText();
+        String telemerg = textTELEMRG.getText();
+        String nomfam = textCONTACTO.getText();
+        
+        
         try {
             {
-                PreparedStatement pst = cn.prepareStatement("insert into cliente(IDCliente, Nombres,ApellidoPaterno, ApellidoMaterno, Calle,Numero, Colonia, Delegacion, CP, Telefono) VALUES (?,?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, textID.getText());
-                pst.setString(2, textNOMBRES.getText());
-                pst.setString(3, textPATERNO.getText());
-                pst.setString(4, textMATERNO.getText());
-                pst.setString(5, textCALLE.getText());
-                pst.setString(6, textNUM.getText());
-                pst.setString(7, textCOL.getText());
-                pst.setString(8, textDELG.getText());
-                pst.setString(9, textCP.getText());
-                pst.setString(10, textTEL.getText());
-
-            }
-            {
-                PreparedStatement pst = (PreparedStatement) cn.prepareStatement("insert into expediente_cliente(Clave_expediente, Edad, Sexo, Talla, Estatura, Frec_Car, Peso, NumSS, Institucion, TelEmerg, NomFamiliar) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, textCVECLI.getText());
-                pst.setString(2, textEDAD1.getText());
-                pst.setString(3, (String) jComboBoxSEXO.getSelectedItem());
-                pst.setString(4, (String) jComboBoxTALLA.getSelectedItem());
-                pst.setString(5, textEST.getText());
-                pst.setString(6, textFREC.getText());
-                pst.setString(7, textPESO.getText());
-                pst.setString(8, textNSS.getText());
-                pst.setString(9, (String) jComboBoxINST.getSelectedItem());
-                pst.setString(10, textTELEMRG.getText());
-                pst.setString(11, textCONTACTO.getText());
-                pst.execute();
-                pst.close();
+                PreparedStatement pstm = cn.prepareStatement("insert into cliente+expediente_cliente(IDCliente,Nombres,ApellidoPaterno,ApellidoMaterno,Calle,Numero,Colonia,Delegacion,CP,Telefono,Clave_expediente,Edad,Sexo,Talla,Estatura,Frec_Car,Peso,NumSS,Institucion,TelEmerg,NomFamiliar) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                pstm.setString(1, textID.getText());
+                pstm.setString(2, textNOMBRES.getText());
+                pstm.setString(3, textPATERNO.getText());
+                pstm.setString(4, textMATERNO.getText());
+                pstm.setString(5, textCALLE.getText());
+                pstm.setString(6, textNUM.getText());
+                pstm.setString(7, textCOL.getText());
+                pstm.setString(8, textDELG.getText());
+                pstm.setString(9, textCP.getText());
+                pstm.setString(10, textTEL.getText());
+                pstm.setString(11, textCVECLI.getText());
+                pstm.setString(12, textEDAD1.getText());
+                pstm.setString(13, textSEXO.getText());
+                pstm.setString(14, textTALLA.getText());
+                pstm.setString(15, textEST.getText());
+                pstm.setString(16, textFREC.getText());
+                pstm.setString(17, textPESO.getText());
+                pstm.setString(18, textNSS.getText());
+                pstm.setString(19, textINST.getText());
+                pstm.setString(20, textTELEMRG.getText());
+                pstm.setString(21, textCONTACTO.getText());
+                pstm.execute();
+                pstm.close();
+                pstm.close();
                 JOptionPane.showMessageDialog(null, "Los Datos han sido guardados");
-                pst.executeUpdate();
-
-            }
+                pstm.executeUpdate();
+                
+                cargartabla();             
+                
+                }
 
         } catch (SQLException e) {
             System.out.print(e.getMessage());
@@ -728,10 +736,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_textPATERNOActionPerformed
 
-    private void jComboBoxSEXOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSEXOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxSEXOActionPerformed
-
     private void textFRECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFRECActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFRECActionPerformed
@@ -739,6 +743,10 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private void textPESOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPESOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textPESOActionPerformed
+
+    private void textSEXOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSEXOActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSEXOActionPerformed
 
     /**
      * @param args the command line arguments
@@ -786,9 +794,6 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox jComboBoxINST;
-    private javax.swing.JComboBox jComboBoxSEXO;
-    private javax.swing.JComboBox jComboBoxTALLA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -824,15 +829,22 @@ public class Registrar_cliente extends javax.swing.JDialog {
     private org.edisoncor.gui.textField.TextField textFREC;
     private org.edisoncor.gui.textField.TextField textField10;
     private org.edisoncor.gui.textField.TextField textID;
+    private org.edisoncor.gui.textField.TextField textINST;
     private org.edisoncor.gui.textField.TextField textMATERNO;
     private org.edisoncor.gui.textField.TextField textNOMBRES;
     private org.edisoncor.gui.textField.TextField textNSS;
     private org.edisoncor.gui.textField.TextField textNUM;
     private org.edisoncor.gui.textField.TextField textPATERNO;
     private org.edisoncor.gui.textField.TextField textPESO;
+    private org.edisoncor.gui.textField.TextField textSEXO;
+    private org.edisoncor.gui.textField.TextField textTALLA;
     private org.edisoncor.gui.textField.TextField textTEL;
     private org.edisoncor.gui.textField.TextField textTELEMRG;
     // End of variables declaration//GEN-END:variables
+
+    private void cargartabla() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }
