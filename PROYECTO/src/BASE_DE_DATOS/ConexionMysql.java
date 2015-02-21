@@ -6,7 +6,7 @@ public class ConexionMysql {
     public String db = "gym";
     public String url = "jdbc:mysql://localhost/"+db;
     public String user = "root";
-    public String pass = "dafne93";
+    public String pass = "administrador";
     
     public ConexionMysql()
     {
