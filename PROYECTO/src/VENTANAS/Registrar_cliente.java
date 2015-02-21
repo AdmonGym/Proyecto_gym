@@ -386,7 +386,7 @@ public class Registrar_cliente extends javax.swing.JDialog {
         }
         
         
-        {
+        
             
         RC2 dialog = new RC2(new javax.swing.JFrame(), true);
         dialog.setTitle("EXPEDIENTE");
@@ -394,8 +394,8 @@ public class Registrar_cliente extends javax.swing.JDialog {
         dialog.setVisible(true);
         
         
-        }
-cerrar();
+        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void textNOMBRESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNOMBRESActionPerformed

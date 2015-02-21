@@ -17,13 +17,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 
-
 /**
  *
  * @author Paula
  */
 public class Informacion_cliente extends javax.swing.JDialog {
-  
 
     /**
      * Creates new form Informacion_cliente
@@ -31,11 +29,77 @@ public class Informacion_cliente extends javax.swing.JDialog {
     public Informacion_cliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        cargartabla();
+        cargartabla2();
+
     }
-     
-    
-    
+
+    void cargartabla() {
+        String[] titulos = {"ID", "Nombre", "ApellidoP","ApellidoM","Calle","#","Col","Del","CP","TEL"};
+        String[] registro = new String[10];
+        DefaultTableModel modelo;
+        modelo = new DefaultTableModel(null, titulos);
+        ConexionMysql mysql = new ConexionMysql();
+        Connection cn = mysql.Conectar();
+        try {
+
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement ("SELECT IDCliente,Nombres,ApellidoPaterno,ApellidoMaterno,Calle,Numero,Colonia,Delegacion,CP,Telefono FROM cliente");
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {
+                registro[0] = res.getString("IDCliente");
+                registro[1] = res.getString("Nombres");
+                registro[2] = res.getString("ApellidoPaterno");
+                registro[3] = res.getString("ApellidoMaterno");
+                registro[4] = res.getString("Calle");
+                registro[5] = res.getString("Numero");
+                registro[6] = res.getString("Colonia");
+                registro[7] = res.getString("Delegacion");
+                registro[8] = res.getString("CP");
+                registro[9] = res.getString("Telefono");
+               
+
+                modelo.addRow(registro);
+            }
+            tblDatos.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
+        }
+    }
+     void cargartabla2() {
+        String[] titulos = {"CLAVE","Edad","Sexo","Talla","Estatura","Frec","Peso","NSS","Ins","TelEmerg","Contacto"};
+        String[] registro = new String[11];
+        DefaultTableModel modelo;
+        modelo = new DefaultTableModel(null, titulos);
+        ConexionMysql mysql = new ConexionMysql();
+        Connection cn = mysql.Conectar();
+        try {
+
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement ("SELECT Clave_expediente,Edad,Sexo,Talla,Estatura,Frec_Car,Peso,NumSS,Institucion,TelEmerg,NomFamiliar FROM expediente_cliente");
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {
+                registro[0] = res.getString("Clave_expediente");
+                registro[1] = res.getString("Edad");
+                registro[2] = res.getString("Sexo");
+                registro[3] = res.getString("Talla");
+                registro[4] = res.getString("Estatura");
+                registro[5] = res.getString("Frec_Car");
+                registro[6] = res.getString("Peso");
+                registro[7] = res.getString("NumSS");
+                registro[8] = res.getString("Institucion");
+                registro[9] = res.getString("TelEmerg");
+                registro[10] = res.getString("NomFamiliar");
+
+               
+
+                modelo.addRow(registro);
+            }
+            tblDatos2.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.print(ex.getMessage());
+        }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,14 +112,16 @@ public class Informacion_cliente extends javax.swing.JDialog {
 
         panel1 = new org.edisoncor.gui.panel.Panel();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         textBUSCAR1 = new org.edisoncor.gui.textField.TextField();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDatos = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDatos2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,19 +143,6 @@ public class Informacion_cliente extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Apellido Paterno", "Apellido Materno", "Edad", "Peso", "Talla"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES_REDISEÑO/BUSCAR-NORM.png"))); // NOI18N
         jButton5.setBorder(null);
@@ -159,6 +212,32 @@ public class Informacion_cliente extends javax.swing.JDialog {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDatos);
+
+        tblDatos2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDatos2);
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -166,37 +245,42 @@ public class Informacion_cliente extends javax.swing.JDialog {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(jButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(textBUSCAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(jButton7)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(177, 177, 177)
-                                        .addComponent(jButton1))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jButton6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2))))))
-                    .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(206, 206, 206)
-                        .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 39, Short.MAX_VALUE))
+                        .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton5)
+                        .addGap(18, 18, 18)
+                        .addComponent(textBUSCAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton7)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jButton1))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)))))
+                .addGap(0, 820, Short.MAX_VALUE))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6)
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -225,25 +309,26 @@ public class Informacion_cliente extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cerrar();
-       Clientes dialog = new Clientes(new javax.swing.JFrame(), true);
+        Clientes dialog = new Clientes(new javax.swing.JFrame(), true);
         dialog.setTitle("CLIENTES");
         dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);   
-    }                                        
-private void cerrar(){
-   this.setVisible(false);
+        dialog.setVisible(true);
+    }
+
+    private void cerrar() {
+        this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-   /**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -283,7 +368,7 @@ private void cerrar(){
                 dialog.setVisible(true);
             }
         });
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -292,10 +377,11 @@ private void cerrar(){
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
+    private javax.swing.JTable tblDatos;
+    private javax.swing.JTable tblDatos2;
     private org.edisoncor.gui.textField.TextField textBUSCAR1;
     // End of variables declaration//GEN-END:variables
 }
-
