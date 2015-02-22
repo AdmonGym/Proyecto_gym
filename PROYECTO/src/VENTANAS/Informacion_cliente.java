@@ -35,24 +35,23 @@ public class Informacion_cliente extends javax.swing.JDialog {
         cargartabla2();
 
     }
-    void Eliminar(String valor){
-        
-        String sql = "DELETE Nombres WHERE CONCAT(Nombres, ' ' from clientes where id= ("+valor+")" ; 
-        ConexionMysql  mysql = new ConexionMysql();
+
+    void Eliminar(String valor) {
+
+        String sql = "DELETE Nombres WHERE CONCAT(Nombres, ' ' from clientes where id= (" + valor + ")";
+        ConexionMysql mysql = new ConexionMysql();
         Connection coneccion = (Connection) mysql.Conectar();
         try {
-        
-            com.mysql.jdbc.Statement instruccion  = (com.mysql.jdbc.Statement) coneccion.createStatement();
-           boolean borrado = instruccion.execute(sql);
-           cargartabla();
-           if(borrado=true) {
-              JOptionPane.showMessageDialog(null,"Se Ha Eliminado Exitosamente");
-                }
-           else {
-               JOptionPane.showMessageDialog(null,"El ID Ingresado no Existe");
-                 }
-            }  
-        catch (SQLException ex){
+
+            com.mysql.jdbc.Statement instruccion = (com.mysql.jdbc.Statement) coneccion.createStatement();
+            boolean borrado = instruccion.execute(sql);
+            cargartabla();
+            if (borrado = true) {
+                JOptionPane.showMessageDialog(null, "Se Ha Eliminado Exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "El ID Ingresado no Existe");
+            }
+        } catch (SQLException ex) {
         }
     }
 
@@ -373,28 +372,25 @@ public class Informacion_cliente extends javax.swing.JDialog {
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
-TU QUE OPINAS DAFNE, CODIGO O DOCUMENTACION? ps yo digo q con que quede el codigo y 
-        ya aunque cambiemos la documentacion porq lo q nos preocupa ahorita es el 
-                ch,,,, prototipo y es el mas dificil no?
-                TERMINA yo digo q ps asi como vamos no cambia la documentacion lo q cambia son 
-                        los diagramas de secuencia no?
-                        SI LO UNICO QUE ME PREOCUPA SON LOS DIAGRAMAS DE SECUENCIA
-                                PERO ASI COMO LO TENEMOS YA SE CAMBIO TODO
-                                        ASI QUE MEJOR QUE LA DOCUMENTACION SE AJUSTE AL PROGRAMA
-                                                TaTa!!! si mejor nos quedamos con el programa y ya ajustamos la documenta
-                                                        cion
-                                                                VALE MAÑANA TERMINAMOS CON LO DE ELIMINAR Y MODIFICAR PERO EN BASE AL DE DIRECTORIO
-                                                                        si yo opino lo mismo q como el de directorio VALE... DECLARO FINALIZADA LA SESION JAJAJA :P:P:P
-                                                                                vale
-                                                                                -MOSTRAR(BOTON)-
-                                                                                -EDITAR-EN LA NUEVA PANTALLA
-                                                                                
-                                                                                
-                                                                                -ELIMINAR-EN LA PANTALLA 
-                                                                                BASE DE DIRECTORIO
-                                                                                     
-                             
+//TU QUE OPINAS DAFNE, CODIGO O DOCUMENTACION? ps yo digo q con que quede el codigo y 
+    //      ya aunque cambiemos la documentacion porq lo q nos preocupa ahorita es el 
+    //            ch,,,, prototipo y es el mas dificil no?
+    //          TERMINA yo digo q ps asi como vamos no cambia la documentacion lo q cambia son 
+    //                los diagramas de secuencia no?
+    //              SI LO UNICO QUE ME PREOCUPA SON LOS DIAGRAMAS DE SECUENCIA
+    //                    PERO ASI COMO LO TENEMOS YA SE CAMBIO TODO
+    //                          ASI QUE MEJOR QUE LA DOCUMENTACION SE AJUSTE AL PROGRAMA
+    //                                TaTa!!! si mejor nos quedamos con el programa y ya ajustamos la documenta
+    //                                      cion
+    //                                            VALE MAÑANA TERMINAMOS CON LO DE ELIMINAR Y MODIFICAR PERO EN BASE AL DE DIRECTORIO
+    //                                                 si yo opino lo mismo q como el de directorio VALE... DECLARO FINALIZADA LA SESION JAJAJA :P:P:P
+    //                                                       vale
+    //                                                     -MOSTRAR(BOTON)-
+    //                                                   -EDITAR-EN LA NUEVA PANTALLA
+    //                                                 
 
+                                 //                                               -ELIMINAR-EN LA PANTALLA 
+    //                                             BASE DE DIRECTORIO
     private void cerrar() {
         this.setVisible(false);
 
