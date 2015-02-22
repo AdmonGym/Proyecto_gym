@@ -23,6 +23,8 @@ import java.awt.event.*;
  */
 public class Informacion_cliente extends javax.swing.JDialog {
 
+    private DefaultTableModel modelo;
+
     /**
      * Creates new form Informacion_cliente
      */
@@ -33,9 +35,65 @@ public class Informacion_cliente extends javax.swing.JDialog {
         cargartabla2();
 
     }
+    void Eliminar(String valor){
+        
+        String sql = "DELETE Nombres WHERE CONCAT(Nombres, ' ' from clientes where id= ("+valor+")" ; 
+        ConexionMysql  mysql = new ConexionMysql();
+        Connection coneccion = (Connection) mysql.Conectar();
+        try {
+        
+            com.mysql.jdbc.Statement instruccion  = (com.mysql.jdbc.Statement) coneccion.createStatement();
+           boolean borrado = instruccion.execute(sql);
+           cargartabla();
+           if(borrado=true) {
+              JOptionPane.showMessageDialog(null,"Se Ha Eliminado Exitosamente");
+                }
+           else {
+               JOptionPane.showMessageDialog(null,"El ID Ingresado no Existe");
+                 }
+            }  
+        catch (SQLException ex){
+        }
+    }
+
+    void Busqueda(String valor) {
+        String[] titulos = {"ID", "Nombre", "ApellidoP", "ApellidoM", "Calle", "#", "Col", "Del", "CP", "TEL"};
+        String[] registro = new String[10];
+        String sSQL = "";
+        modelo = new DefaultTableModel(null, titulos);
+
+        ConexionMysql mysql = new ConexionMysql();
+        com.mysql.jdbc.Connection cn = (com.mysql.jdbc.Connection) mysql.Conectar();
+
+        sSQL = "SELECT IDCliente,Nombres,ApellidoPaterno,ApellidoMaterno,Calle,Numero,Colonia,Delegacion,CP,Telefono FROM cliente "
+                + "WHERE CONCAT(Nombres, ' ',ApellidoPaterno) LIKE '%" + valor + "%'";
+        try {
+            com.mysql.jdbc.Statement st = (com.mysql.jdbc.Statement) cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while (rs.next()) {
+                registro[0] = rs.getString("IDCliente");
+                registro[1] = rs.getString("Nombres");
+                registro[2] = rs.getString("ApellidoPaterno");
+                registro[3] = rs.getString("ApellidoMaterno");
+                registro[4] = rs.getString("Calle");
+                registro[5] = rs.getString("Numero");
+                registro[6] = rs.getString("Colonia");
+                registro[7] = rs.getString("Delegacion");
+                registro[8] = rs.getString("CP");
+                registro[9] = rs.getString("Telefono");
+                modelo.addRow(registro);
+            }
+            tblDatos.setModel(modelo);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+    }
 
     void cargartabla() {
-        String[] titulos = {"ID", "Nombre", "ApellidoP","ApellidoM","Calle","#","Col","Del","CP","TEL"};
+        String[] titulos = {"ID", "Nombre", "ApellidoP", "ApellidoM", "Calle", "#", "Col", "Del", "CP", "TEL"};
         String[] registro = new String[10];
         DefaultTableModel modelo;
         modelo = new DefaultTableModel(null, titulos);
@@ -43,7 +101,7 @@ public class Informacion_cliente extends javax.swing.JDialog {
         Connection cn = mysql.Conectar();
         try {
 
-            PreparedStatement pst = (PreparedStatement) cn.prepareStatement ("SELECT IDCliente,Nombres,ApellidoPaterno,ApellidoMaterno,Calle,Numero,Colonia,Delegacion,CP,Telefono FROM cliente");
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("SELECT IDCliente,Nombres,ApellidoPaterno,ApellidoMaterno,Calle,Numero,Colonia,Delegacion,CP,Telefono FROM cliente");
             ResultSet res = pst.executeQuery();
             while (res.next()) {
                 registro[0] = res.getString("IDCliente");
@@ -56,7 +114,6 @@ public class Informacion_cliente extends javax.swing.JDialog {
                 registro[7] = res.getString("Delegacion");
                 registro[8] = res.getString("CP");
                 registro[9] = res.getString("Telefono");
-               
 
                 modelo.addRow(registro);
             }
@@ -65,8 +122,9 @@ public class Informacion_cliente extends javax.swing.JDialog {
             System.out.print(ex.getMessage());
         }
     }
-     void cargartabla2() {
-        String[] titulos = {"CLAVE","Edad","Sexo","Talla","Estatura","Frec","Peso","NSS","Ins","TelEmerg","Contacto"};
+
+    void cargartabla2() {
+        String[] titulos = {"CLAVE", "Edad", "Sexo", "Talla", "Estatura", "Frec", "Peso", "NSS", "Ins", "TelEmerg", "Contacto"};
         String[] registro = new String[11];
         DefaultTableModel modelo;
         modelo = new DefaultTableModel(null, titulos);
@@ -74,7 +132,7 @@ public class Informacion_cliente extends javax.swing.JDialog {
         Connection cn = mysql.Conectar();
         try {
 
-            PreparedStatement pst = (PreparedStatement) cn.prepareStatement ("SELECT Clave_expediente,Edad,Sexo,Talla,Estatura,Frec_Car,Peso,NumSS,Institucion,TelEmerg,NomFamiliar FROM expediente_cliente");
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("SELECT Clave_expediente,Edad,Sexo,Talla,Estatura,Frec_Car,Peso,NumSS,Institucion,TelEmerg,NomFamiliar FROM expediente_cliente");
             ResultSet res = pst.executeQuery();
             while (res.next()) {
                 registro[0] = res.getString("Clave_expediente");
@@ -89,8 +147,6 @@ public class Informacion_cliente extends javax.swing.JDialog {
                 registro[9] = res.getString("TelEmerg");
                 registro[10] = res.getString("NomFamiliar");
 
-               
-
                 modelo.addRow(registro);
             }
             tblDatos2.setModel(modelo);
@@ -98,8 +154,6 @@ public class Informacion_cliente extends javax.swing.JDialog {
             System.out.print(ex.getMessage());
         }
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,6 +208,11 @@ public class Informacion_cliente extends javax.swing.JDialog {
         jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES_REDISEÑO/BUSCAR-ROLL.png"))); // NOI18N
         jButton5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/BOTONES/MOSTRAR-NORM.png"))); // NOI18N
         jButton6.setBorder(null);
@@ -263,11 +322,11 @@ public class Informacion_cliente extends javax.swing.JDialog {
                                 .addComponent(jButton6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))))
-                .addGap(0, 820, Short.MAX_VALUE))
+                .addGap(0, 828, Short.MAX_VALUE))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -314,6 +373,27 @@ public class Informacion_cliente extends javax.swing.JDialog {
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }
+TU QUE OPINAS DAFNE, CODIGO O DOCUMENTACION? ps yo digo q con que quede el codigo y 
+        ya aunque cambiemos la documentacion porq lo q nos preocupa ahorita es el 
+                ch,,,, prototipo y es el mas dificil no?
+                TERMINA yo digo q ps asi como vamos no cambia la documentacion lo q cambia son 
+                        los diagramas de secuencia no?
+                        SI LO UNICO QUE ME PREOCUPA SON LOS DIAGRAMAS DE SECUENCIA
+                                PERO ASI COMO LO TENEMOS YA SE CAMBIO TODO
+                                        ASI QUE MEJOR QUE LA DOCUMENTACION SE AJUSTE AL PROGRAMA
+                                                TaTa!!! si mejor nos quedamos con el programa y ya ajustamos la documenta
+                                                        cion
+                                                                VALE MAÑANA TERMINAMOS CON LO DE ELIMINAR Y MODIFICAR PERO EN BASE AL DE DIRECTORIO
+                                                                        si yo opino lo mismo q como el de directorio VALE... DECLARO FINALIZADA LA SESION JAJAJA :P:P:P
+                                                                                vale
+                                                                                -MOSTRAR(BOTON)-
+                                                                                -EDITAR-EN LA NUEVA PANTALLA
+                                                                                
+                                                                                
+                                                                                -ELIMINAR-EN LA PANTALLA 
+                                                                                BASE DE DIRECTORIO
+                                                                                     
+                             
 
     private void cerrar() {
         this.setVisible(false);
@@ -325,8 +405,15 @@ public class Informacion_cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        String valor = textBUSCAR1.getText();
+        Eliminar(valor);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String valor = textBUSCAR1.getText();
+        Busqueda(valor);
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
